@@ -1,0 +1,23 @@
+{
+  "name": "groen-en-gewoon-doen",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "groen"
+  ],
+  "homepage": "https://github.com/sanderhd/groen-en-gewoon-doen#readme",
+  "bugs": {
+    "url": "https://github.com/sanderhd/groen-en-gewoon-doen/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanderhd/groen-en-gewoon-doen.git"
+  },
+  "license": "ISC",
+  "author": "rico, sander, mo",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
