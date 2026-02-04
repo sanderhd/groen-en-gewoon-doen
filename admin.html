@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Groen en Gewoon doen</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <header>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <h1>Admin - Groen & Gewoon Doen</h1>
+
+        <nav id="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="admin.html">Admin</a>    
+        </nav>
+        
+        <a href="" class="logout">Logout</a>
+    </header>
+
+    <main>
+        <div class="tabs">
+            <button class="tablinks" data-tab="Tab1" id="defaultOpen">Orders</button>
+            <button class="tablinks" data-tab="Tab2">Pakketten</button>
+            <button class="tablinks" data-tab="Tab3">Tarieven</button>
+        </div>
+
+        <div id="Tab1" class="tabcontent">
+            <h2>Orders Overzicht</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Klant</th>
+                        <th>Details</th>
+                        <th>Offerte</th>
+                        <th>Status</th>
+                        <th>Acties</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div id="Tab2" class="tabcontent">
+            <h2>Pakketten Overzicht</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pakket ID</th>
+                        <th>Klant</th>
+                        <th>Details</th>
+                        <th>Offerte</th>
+                        <th>Status</th>
+                        <th>Acties</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div id="Tab3" class="tabcontent">
+            <h2>Tarieven Overzicht</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tarief ID</th>
+                        <th>Klant</th>
+                        <th>Details</th>
+                        <th>Offerte</th>
+                        <th>Status</th>
+                        <th>Acties</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="">
+            <h2>Tarieven</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Naam</th>
+                        <th>Prijs</th>
+                        <th><button class="btn small">Bewerk</button></th>
+                        <th><button class="btn small">Verwijder</button></th>
+                    </tr>
+                </thead>
+            </table>
+
+            <h3>Nieuw pakket</h3>
+
+            <form action="">
+                <label for="naam">Naam:</label>
+                <input type="text" id="naam" name="naam" required>
+
+                <label for="beschrijving">Beschrijving:</label>
+                <input type="text" id="beschrijving" name="beschrijving" required>
+
+                <label for="prijs">Prijs:</label>
+                <input type="number" id="prijs" name="prijs" required>
+
+                <button type="submit" class="btn primary">Toevoegen</button>
+            </form>
+        </div>
+
+        <div class="">
+            <h2>Tarieven beheren (optional)</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prijs per m² Gras</th>
+                        <th>Prijs per m² Tegels</th>
+                        <th><input></th>
+                        <th><button class="btn primary">Opslaan</button></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Groen en Gewoon Doen. Alle rechten voorbehouden.</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
