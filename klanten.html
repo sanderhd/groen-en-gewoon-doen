@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klant Pagina - Groen en Gewoon doen</title>
+    <link rel="stylesheet" href="css/klanten.css">
+</head>
+<body>
+    <header>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h1>Groen en Gewoon doen</h1>
+        <a href="#" class="logout">Uitloggen</a>
+        <nav id="nav-menu">
+            <a href="#">Home</a>
+            <a href="#">Mijn Orders</a>
+            <a href="#">Instellingen</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h2>Welkom!</h2>
+            <p>Bestel uw tuinservice eenvoudig online.</p>
+        </section>
+
+        <section class="package-selection">
+            <h3>Kies een pakket</h3>
+            <details>
+                <summary>Onze Pakketten</summary>
+                <div class="package-list">
+                    <div class="package-item">
+                        <h4>Basispakket Tuinonderhoud</h4>
+                        <p>Regelmatig onderhoud voor een nette tuin.</p>
+                        <span class="price">€49.99</span>
+                        <button class="btn primary add-to-order">Bestel</button>
+                    </div>
+                    <div class="package-item">
+                        <h4>Pluspakket Tuinonderhoud</h4>
+                        <p>Uitgebreid onderhoud inclusief snoeiwerk.</p>
+                        <span class="price">€79.99</span>
+                        <button class="btn primary add-to-order">Bestel</button>
+                    </div>
+                    <div class="package-item">
+                        <h4>Premiumpakket Tuinonderhoud</h4>
+                        <p>Complete verzorging van uw tuin, het hele jaar door.</p>
+                        <span class="price">€129.99</span>
+                        <button class="btn primary add-to-order">Bestel</button>
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <section class="custom-quote">
+            <h3>Stel uw eigen offerte samen</h3>
+            <form id="quote-form">
+                <label for="m2-gras">M² Gras</label>
+                <input type="number" id="m2-gras" name="m2-gras" placeholder="bv. 50" min="0">
+
+                <label for="m2-tegels">M² Tegels</label>
+                <input type="number" id="m2-tegels" name="m2-tegels" placeholder="bv. 20" min="0">
+
+                <label for="meters-heg">Meters Heg</label>
+                <input type="number" id="meters-heg" name="meters-heg" placeholder="bv. 15" min="0">
+
+                <button type="submit" class="primary">Bereken offerte</button>
+            </form>
+            <div id="quote-result" class="quote-result-container"></div>
+        </section>
+
+        <section class="my-order">
+            <h3>Mijn Order</h3>
+            <div id="order-items" class="order-items-container">
+                <p>Uw order is leeg.</p>
+            </div>
+            <div class="order-total">
+                <strong>Totaal:</strong> <span id="total-price">€0.00</span>
+            </div>
+            <button class="btn primary full-width-btn">Bestelling plaatsen</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Groen en Gewoon doen</p>
+    </footer>
+
+    <script src="js/klanten.js"></script>
+</body>
+</html>

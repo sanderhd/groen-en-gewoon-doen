@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9; /* Lighter gray for page background */
+    color: #222222;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px 14px;
+    border-bottom: 1px solid #e6e6e6;
+    background: #ffffff;
+}
+
+/* Hamburger and Nav Menu styles from admin.css can be reused */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 4px;
+    background-color: #333333;
+    margin: 5px 0;
+    transition: 0.15s;
+}
+
+#nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    width: 100%;
+    border-top: 1px solid #e9e9e9;
+    z-index: 1000;
+}
+
+#nav-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #222222;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#nav-menu a:hover {
+    background-color: #fafafa;
+}
+
+#nav-menu.open {
+    display: block;
+}
+
+.logout {
+    background: #ffffff;
+    border: 1px solid #d7e3d7;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #213022;
+}
+
+.logout:hover {
+    background: #f0f5f0;
+}
+
+/* Main content area */
+main {
+    max-width: 960px;
+    margin: 18px auto;
+    padding: 0 16px 36px;
+    display: grid;
+    gap: 24px; /* Space between sections */
+}
+
+/* Section styling */
+main section {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+}
+
+h2, h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+/* Package Selection */
+.package-selection summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 10px;
+    background: #f6f6f6;
+    border-radius: 4px;
+    border: 1px solid #e9e9e9;
+    list-style: none; /* remove default arrow */
+}
+
+.package-selection summary::-webkit-details-marker {
+    display: none; /* remove default arrow for Chrome/Safari */
+}
+
+.package-selection details[open] summary {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.package-list {
+    padding-top: 16px;
+    display: grid;
+    gap: 16px;
+}
+
+.package-item {
+    border: 1px solid #e0e0e0;
+    padding: 16px;
+    border-radius: 6px;
+    display: grid;
+    gap: 8px;
+}
+
+.package-item h4 {
+    margin: 0;
+}
+
+.package-item .price {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #4a4a4a;
+}
+
+/* Custom Quote Form */
+#quote-form {
+    display: grid;
+    gap: 10px;
+    max-width: 640px;
+    margin-top: 12px;
+}
+
+label {
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="number"],
+input {
+    padding: 8px 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    width: 100%; /* Make inputs full width of form */
+    box-sizing: border-box;
+}
+
+.quote-result-container {
+    margin-top: 16px;
+    padding: 12px;
+    background-color: #f0f5f0;
+    border: 1px solid #d7e3d7;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* My Order Section */
+.order-items-container {
+    margin-top: 12px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    padding: 10px;
+    min-height: 50px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-total {
+    margin-top: 16px;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    background: #ffffff;
+    color: #222222;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.12s, border-color 0.12s, transform 0.06s;
+}
+
+.btn.primary {
+    background: #4a4a4a;
+    color: #ffffff;
+    border-color: #4a4a4a;
+}
+
+.btn:hover {
+    background-color: #f2f2f2;
+    border-color: #cfcfcf;
+    transform: translateY(-1px);
+}
+
+.full-width-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+/* footer */
+footer {
+    text-align: center;
+    padding: 18px 0;
+    color: #8a8a8a;
+}
+
+/* Responsive styles */
+@media (max-width: 700px) {
+    header { padding: 8px 10px; }
+    h1 { font-size: 16px; margin: 0 8px; flex: 1 1 auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    main { padding: 0 12px 28px; margin-top: 12px; }
+    main section { padding: 16px; }
+    #nav-menu { position: fixed; left: 0; right: 0; top: 48px; background: #ffffff; z-index: 1200; max-height: calc(100vh - 48px); overflow: auto; }
+}
