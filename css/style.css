@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #222;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px 14px;
+  border-bottom: 1px solid #e6e6e6;
+  background: #fff;
+}
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+.hamburger div {
+  width: 30px;
+  height: 4px;
+  background: #333;
+  margin: 5px 0;
+  transition: 0.15s;
+}
+#nav-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  border-top: 1px solid #e9e9e9;
+  z-index: 1000;
+}
+#nav-menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #222;
+  border-bottom: 1px solid #f0f0f0;
+}
+#nav-menu.open {
+  display: block;
+}
+.logout {
+  background: #fff;
+  border: 1px solid #d7e3d7;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #213022;
+  text-decoration: none;
+}
+.logout:hover {
+  background: #f0f5f0;
+}
+main {
+  max-width: 960px;
+  margin: 18px auto;
+  padding: 0 16px 36px;
+}
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.tablinks {
+  background: #f6f6f6;
+  border: 1px solid #e9e9e9;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition:
+    background 0.15s,
+    transform 0.06s;
+  border-radius: 4px;
+}
+.tablinks.active {
+  background: #4a4a4a;
+  color: #fff;
+}
+.tabcontent {
+  padding: 16px;
+  border: 1px solid #eaeaea;
+  background: #fff;
+  border-radius: 6px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+table,
+th,
+td {
+  border: 1px solid #eee;
+}
+th,
+td {
+  padding: 10px 8px;
+  text-align: left;
+}
+thead th {
+  background: #f8f8f8;
+  color: #222;
+}
+.btn,
+form button,
+form input[type="submit"],
+button[type="submit"] {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  background: #fff;
+  color: #222;
+  cursor: pointer;
+  font-size: 14px;
+  transition:
+    background 0.12s,
+    border-color 0.12s,
+    transform 0.06s;
+}
+.btn.primary,
+form button.primary,
+form input[type="submit"].primary,
+button[type="submit"].primary {
+  background: #4a4a4a;
+  color: #fff;
+  border-color: #4a4a4a;
+}
+.btn.small {
+  padding: 5px 8px;
+  font-size: 13px;
+}
+form {
+  display: grid;
+  gap: 10px;
+  max-width: 640px;
+  margin-top: 12px;
+}
+label {
+  font-weight: 600;
+}
+input[type="text"],
+input[type="number"],
+input,
+textarea,
+select {
+  padding: 8px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.package-item,
+.order-items-container {
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  border-radius: 6px;
+}
+.package-item .price {
+  font-weight: 700;
+  font-size: 1.2em;
+  color: #4a4a4a;
+}
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.order-item:last-child {
+  border-bottom: none;
+}
+.order-total {
+  text-align: right;
+  font-size: 1.2em;
+  margin-top: 16px;
+}
+footer {
+  text-align: center;
+  padding: 18px 0;
+  color: #8a8a8a;
+}
+@media (max-width: 700px) {
+  header {
+    padding: 8px 10px;
+  }
+  .tabs {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 6px;
+  }
+  .tablinks {
+    padding: 8px 12px;
+  }
+  .tabcontent {
+    padding: 12px;
+  }
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  form {
+    gap: 8px;
+  }
+  form button,
+  .btn.primary {
+    width: 100%;
+    display: block;
+  }
+  #nav-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 48px;
+    max-height: calc(100vh - 48px);
+    overflow: auto;
+  }
+}
+@media (max-width: 420px) {
+  h1 {
+    font-size: 15px;
+  }
+  .tablinks {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+  .hamburger div {
+    width: 26px;
+    height: 3px;
+  }
+}
