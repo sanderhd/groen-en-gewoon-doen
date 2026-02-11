@@ -253,18 +253,6 @@ footer {
     height: 3px;
   }
 }
-header {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-header .logo {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
 .nav-links {
   list-style: none;
   display: flex;
@@ -272,44 +260,36 @@ header .logo {
   margin: 0;
   padding: 0;
 }
-
 .nav-links li a {
   text-decoration: none;
   color: white;
   font-weight: 500;
   transition: color 0.3s;
 }
-
 .nav-links li a:hover {
   color: #d4f5d4;
 }
-
-/* Hero Section */
 .hero {
   background: url('../images/hero-bg.jpg') no-repeat center center/cover;
   color: white;
   text-align: center;
   padding: 100px 20px;
 }
-
 .hero-content h1 {
   font-size: 2.5em;
   margin-bottom: 20px;
 }
-
 .hero-content p {
   font-size: 1.2em;
   margin-bottom: 30px;
 }
-
 .hero-actions {
   display: flex;
   justify-content: center;
   gap: 15px;
 }
-
 .cta-button {
-  background-color: #4CAF50;
+  background-color: black;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
@@ -317,16 +297,6 @@ header .logo {
   font-weight: bold;
   transition: background-color 0.3s;
 }
-
 .cta-button:hover {
-  background-color: #45a049;
-}
-
-/* Footer */
-footer {
-  background-color: #4CAF50;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-  font-size: 0.9em;
+  background-color: black;
 }
