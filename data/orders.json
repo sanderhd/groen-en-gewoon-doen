@@ -1,0 +1,18 @@
+{
+    "orders": [
+        {
+            "id": 1,
+            "client": "Mohammed Mostafa",
+            "details": "Ik wil stoeptegels",
+            "offerte": "235 euro",
+            "status": "In behandeling"
+        },
+        {
+            "id": 2,
+            "client": "RICOOOOOO!",
+            "details": "Ik wil stoeptegels",
+            "offerte": "235 euro",
+            "status": "In behandeling"
+        }
+    ]
+}
