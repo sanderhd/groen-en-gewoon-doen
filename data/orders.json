@@ -1,18 +1,50 @@
 {
-    "orders": [
-        {
-            "id": 1,
-            "client": "Mohammed Mostafa",
-            "details": "Ik wil stoeptegels",
-            "offerte": "235 euro",
-            "status": "In behandeling"
-        },
-        {
-            "id": 2,
-            "client": "RICOOOOOO!",
-            "details": "Ik wil stoeptegels",
-            "offerte": "235 euro",
-            "status": "In behandeling"
-        }
-    ]
+  "orders": [
+    {
+      "id": 1,
+      "client": "Mohammed Mostafa",
+      "adress": "Kerkstraat 12, 1234 AB Amsterdam",
+      "email": "mohammed.mostafa@example.com",
+      "phone": "+31 6 12345678",
+      "package": false,
+      "offerte": {
+        "m2gras": "50",
+        "m2tegels": "30",
+        "heg": "20",
+        "prijs": "5"
+      },
+      "datum": "2024-06-01",
+      "status": "In behandeling"
+    },
+    {
+      "id": 2,
+      "client": "Mohammed Mostafa",
+      "adress": "Kerkstraat 12, 1234 AB Amsterdam",
+      "email": "mohammed.mostafa@example.com",
+      "phone": "+31 6 12345678",
+      "package": {
+        "type": "Premium",
+        "details": "Volledig tuinrenovatie pakket"
+      },
+      "offerte": false,
+      "datum": "2024-06-01",
+      "status": "In behandeling"
+    },
+    {
+      "id": 3,
+      "client": "Mohammed blubberbil",
+      "adress": "Stationsstraat 1, 1234 AB Amsterdam",
+      "email": "jane.doe@example.com",
+      "phone": "+31 6 12345678",
+      "package": false,
+      "offerte": {
+        "m2gras": "40",
+        "m2tegels": "20",
+        "heg": "10",
+        "prijs": "4"
+      },
+      "datum": "2024-06-10",
+      "status": "In behandeling"
+    }
+  ]
 }
