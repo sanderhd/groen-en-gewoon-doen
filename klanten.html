@@ -72,6 +72,66 @@
             <div id="quote-result" class="quote-result-container"></div>
         </section>
 
+        <section class="appointment-calendar">
+            <h3>Plan een afspraak</h3>
+            <p>Hieronder ziet u de kalender. Functionaliteit voor het kiezen van een datum wordt later toegevoegd.</p>
+            
+            <div style="max-width: 350px; border: 1px solid #ccc; border-radius: 8px; padding: 16px; background-color: #fff; margin-bottom: 20px; margin-left: auto; margin-right: auto;">
+                <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 16px;">
+                    <span style="font-weight: bold;">Juni 2026</span>
+                </div>
+                
+                <table style="width: 100%; text-align: center; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th style="padding: 8px; font-size: 0.9em;">Ma</th>
+                            <th style="padding: 8px; font-size: 0.9em;">Di</th>
+                            <th style="padding: 8px; font-size: 0.9em;">Wo</th>
+                            <th style="padding: 8px; font-size: 0.9em;">Do</th>
+                            <th style="padding: 8px; font-size: 0.9em;">Vr</th>
+                            <th style="padding: 8px; font-size: 0.9em;">Za</th>
+                            <th style="padding: 8px; font-size: 0.9em;">Zo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 8px;">1</td><td style="padding: 8px;">2</td><td style="padding: 8px;">3</td><td style="padding: 8px;">4</td><td style="padding: 8px;">5</td><td style="padding: 8px;">6</td><td style="padding: 8px;">7</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px;">8</td><td style="padding: 8px;">9</td><td style="padding: 8px;">10</td><td style="padding: 8px;">11</td><td style="padding: 8px;">12</td><td style="padding: 8px;">13</td><td style="padding: 8px;">14</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px;">15</td><td style="padding: 8px;">16</td><td style="padding: 8px;">17</td><td style="padding: 8px;">18</td><td style="padding: 8px;">19</td><td style="padding: 8px;">20</td><td style="padding: 8px;">21</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px;">22</td><td style="padding: 8px;">23</td><td style="padding: 8px;">24</td><td style="padding: 8px;">25</td><td style="padding: 8px;">26</td><td style="padding: 8px;">27</td><td style="padding: 8px;">28</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px;">29</td><td style="padding: 8px;">30</td><td style="padding: 8px; color: #ccc;">1</td><td style="padding: 8px; color: #ccc;">2</td><td style="padding: 8px; color: #ccc;">3</td><td style="padding: 8px; color: #ccc;">4</td><td style="padding: 8px; color: #ccc;">5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="customer-details">
+            <h3>Uw Gegevens</h3>
+            <p>Vul uw gegevens in zodat we weten waar de werkzaamheden uitgevoerd moeten worden.</p>
+            <form id="customer-form">
+                <label for="client-name">Naam</label>
+                <input type="text" id="client-name" name="client-name" placeholder="Uw volledige naam" required>
+
+                <label for="client-address">Adres</label>
+                <input type="text" id="client-address" name="client-address" placeholder="Straat, huisnummer, postcode en plaats" required>
+
+                <label for="client-email">E-mailadres</label>
+                <input type="email" id="client-email" name="client-email" placeholder="voorbeeld@email.com" required>
+
+                <label for="client-phone">Telefoonnummer</label>
+                <input type="tel" id="client-phone" name="client-phone" placeholder="Optioneel">
+            </form>
+        </section>
+
         <section class="my-order">
             <h3>Mijn Order</h3>
             <div id="order-items" class="order-items-container">
