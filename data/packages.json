@@ -1,0 +1,16 @@
+{
+  "packages": [
+    {
+      "id": 1,
+      "name": "Pakket 1",
+      "description": "Beschrijving",
+      "price": "1000"
+    },
+    {
+      "id": 2,
+      "name": "Pakket 2",
+      "description": "Beschrijving",
+      "price": "2000"
+    }
+  ]
+}

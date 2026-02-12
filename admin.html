@@ -30,6 +30,7 @@
             <button class="tablinks" data-tab="Tab1" id="defaultOpen">Orders</button>
             <button class="tablinks" data-tab="Tab2">Pakketten</button>
             <button class="tablinks" data-tab="Tab3">Tarieven</button>
+            <button class="tablinks" data-tab="Tab4">Afspraken</button>
         </div>
 
         <div id="Tab1" class="tabcontent">
@@ -57,9 +58,10 @@
                 <thead>
                     <tr>
                         <th>Pakket ID</th>
-                        <th>Klant</th>
-                        <th><button class="btn small">Bewerk</button></th>
-                        <th><button class="btn small">Verwijder</button></th>
+                        <th>Naam</th>
+                        <th>Omschrijving</th>
+                        <!-- <th><button class="btn small">Bewerk</button></th>
+                        <th><button class="btn small">Verwijder</button></th> -->
                     </tr>
                 </thead>
             </table>
@@ -103,6 +105,33 @@
                         <th><button class="btn primary">Opslaan</button></th>
                     </tr>
                 </thead>
+            </table>
+        </div>
+
+        <div id="Tab4" class="tabcontent">
+            <h2>Afspraken</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Datum</th>
+                        <th>Klant</th>
+                        <th>Locatie</th>
+                        <th>Offerte</th>
+                        <th>Prijs</th>
+                        <th>Acties</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2026-05-15</td>
+                        <td>Rico</td>
+                        <td>Amsterdam</td>
+                        <td>40m² Tegels, 20m² Gras, 10m Heg</td>
+                        <td>€1500</td>
+                        <td><button class="btn small">Accepteren</button> <button class="btn small">Weigeren</button></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </main>
