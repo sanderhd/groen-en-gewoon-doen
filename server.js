@@ -1,8 +1,13 @@
 const express = require('express')
+const cors = require('cors')
 const fs = require('fs').promises
 const path = require('path')
 const app = express()
 const port = 3000
+
+app.use(cors({
+  origin: 'http://127.0.0.1:5500'
+}));
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
@@ -209,5 +214,5 @@ app.delete('/api/orders/:id', async (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`API running on port ${port}`)
 })
