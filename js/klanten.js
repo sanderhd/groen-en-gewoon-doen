@@ -4,6 +4,7 @@ const emptyOrderMessage = '<p>Uw order is leeg.</p>';
 let currentTotal = 0;
 const orderItems = [];
 let lastQuote = null;
+let selectedDate = null;
 
 function updateTotalPrice() {
     if (!totalPriceElement) {
@@ -130,6 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadPackages();
     createOrder();
+    initCalendar();
 });
 
 function loadPackages() {
@@ -202,7 +204,7 @@ function createOrder() {
                 offerte: item.offerte || null,
             })),
             total: currentTotal,
-            datum: new Date().toISOString().split("T")[0],
+            datum: selectedDate || new Date().toISOString().split("T")[0],
             status: "In behandeling"
         };
 
@@ -222,4 +224,56 @@ function createOrder() {
             console.error("Error:", error);
         }
     });
+}
+
+function initCalendar() {
+    const calendarBody = document.getElementById('calendar-body');
+    const selectedDateDisplay = document.getElementById('selected-date-display');
+
+    if (!calendarBody) return;
+
+    const daysInMonth = 31;
+    const startDay = 6; // zondag
+
+    let date = 1;
+    for (let i = 0; i < 5; i++) {
+        const row = document.createElement('tr');
+        
+        for (let j = 0; j < 7; j++) {
+            const cell = document.createElement('td');
+            cell.style.padding = '10px';
+            
+            if (i === 0 && j < startDay) {
+                row.appendChild(cell);
+            } else if (date > daysInMonth) {
+                row.appendChild(cell);
+            } else {
+                cell.textContent = date;
+                cell.style.cursor = 'pointer';
+                const dateStr = `2026-03-${String(date).padStart(2, '0')}`;
+                cell.dataset.date = dateStr;
+                
+                cell.addEventListener('click', function() {
+                    document.querySelectorAll('#calendar-body td[data-date]').forEach(c => {
+                        c.style.backgroundColor = '';
+                        c.style.color = '';
+                        c.style.fontWeight = '';
+                    });
+                    
+                    selectedDate = this.dataset.date;
+                    this.style.backgroundColor = '#4CAF50';
+                    this.style.color = 'white';
+                    this.style.fontWeight = 'bold';
+                    
+                    const dateObj = new Date(selectedDate);
+                    selectedDateDisplay.textContent = `Geselecteerde datum: ${dateObj.toLocaleDateString('nl-NL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}`;
+                });
+                
+                date++;
+                row.appendChild(cell);
+            }
+        }
+        
+        calendarBody.appendChild(row);
+    }
 }
