@@ -27,7 +27,6 @@ header {
   height: 4px;
   background: #333;
   margin: 5px 0;
-  transition: 0.15s;
 }
 #nav-menu {
   display: none;
@@ -87,10 +86,8 @@ main {
   padding: 8px 14px;
   cursor: pointer;
   font-size: 14px;
-  transition:
-    background 0.15s,
-    transform 0.06s;
   border-radius: 4px;
+  transition: background 0.2s;
 }
 .tablinks.active {
   background: #4a4a4a;
@@ -133,10 +130,7 @@ button[type="submit"] {
   color: #222;
   cursor: pointer;
   font-size: 14px;
-  transition:
-    background 0.12s,
-    border-color 0.12s,
-    transform 0.06s;
+  transition: background 0.2s, color 0.2s;
 }
 .btn.primary,
 form button.primary,
@@ -146,15 +140,48 @@ button[type="submit"].primary {
   color: #fff;
   border-color: #4a4a4a;
 }
+.btn.primary:hover,
+form button.primary:hover,
+form input[type="submit"].primary:hover,
+button[type="submit"].primary:hover,
+.add-to-order:hover {
+  background: #2a2a2a;
+}
+.btn:hover,
+form button:hover {
+  background: #f0f0f0;
+}
 .btn.small {
   padding: 5px 8px;
   font-size: 13px;
 }
+.custom-quote {
+  background: #fff;
+  border: 1px solid #d0e0cf;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
+}
+.custom-quote h3 {
+  margin-top: 0;
+  color: #213022;
+}
 form {
   display: grid;
   gap: 10px;
-  max-width: 640px;
   margin-top: 12px;
+}
+#quote-form {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+#quote-form button {
+  margin-top: auto;
 }
 label {
   font-weight: 600;
@@ -170,16 +197,50 @@ select {
   width: 100%;
   box-sizing: border-box;
 }
-.package-item,
+.package-intro {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 0.95em;
+}
+.package-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.package-item {
+  border: 1px solid #d0e0cf;
+  padding: 20px;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.package-item h4 {
+  margin: 0 0 8px 0;
+  color: #213022;
+  font-size: 1.1em;
+}
+.package-item p {
+  margin: 0 0 12px 0;
+  color: #666;
+  font-size: 0.9em;
+  flex-grow: 1;
+}
+.package-item .price {
+  font-weight: 700;
+  font-size: 1.4em;
+  color: #4a8242;
+  margin-bottom: 12px;
+}
+.package-item .btn {
+  align-self: flex-start;
+  width: 100%;
+}
 .order-items-container {
   border: 1px solid #e0e0e0;
   padding: 10px;
   border-radius: 6px;
-}
-.package-item .price {
-  font-weight: 700;
-  font-size: 1.2em;
-  color: #4a4a4a;
 }
 .order-item {
   display: flex;
@@ -230,6 +291,9 @@ footer {
   .btn.primary {
     width: 100%;
     display: block;
+  }
+  .package-list {
+    grid-template-columns: 1fr;
   }
   #nav-menu {
     position: fixed;
@@ -293,4 +357,40 @@ footer {
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s;
+}
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.status-pending {
+  background-color: #ff9800;
+  color: white;
+}
+
+.status-approved {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.status-rejected {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Remove from order button */
+.remove-from-order {
+  background-color: #f44336 !important;
+  color: white !important;
+  border-color: #f44336 !important;
+}
+
+.remove-from-order:hover {
+  background-color: #d32f2f !important;
+  border-color: #d32f2f !important;
 }

@@ -3,14 +3,20 @@
     {
       "id": 1,
       "name": "Pakket 1",
-      "description": "Beschrijving",
+      "description": "10m2 gras, 5m2 tegels, 2m heg",
       "price": "1000"
     },
     {
       "id": 2,
       "name": "Pakket 2",
-      "description": "Beschrijving",
+      "description": "20m2 gras, 10m2 tegels, 5m heg",
       "price": "2000"
+    },
+    {
+      "id": 3,
+      "name": "Pakket 3",
+      "description": "50m2 gras, 20m2 tegels, 10m heg",
+      "price": "3000"
     }
   ]
 }

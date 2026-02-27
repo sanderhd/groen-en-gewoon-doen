@@ -14,7 +14,7 @@
         "prijs": "5"
       },
       "datum": "2024-06-01",
-      "status": "In behandeling"
+      "status": "Geplaatst"
     },
     {
       "id": 2,
@@ -28,7 +28,7 @@
       },
       "offerte": false,
       "datum": "2024-06-01",
-      "status": "In behandeling"
+      "status": "Geplaatst"
     },
     {
       "id": 3,

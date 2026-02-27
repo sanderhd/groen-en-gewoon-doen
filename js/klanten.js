@@ -18,12 +18,19 @@ function addOrderItem(name, price, meta = {}) {
         return;
     }
 
-    if (orderItemsContainer.innerHTML.includes(emptyOrderMessage)) {
-        orderItemsContainer.innerHTML = '';
+    if (orderItems.length > 0) {
+        document.querySelectorAll('.add-to-order, #add-quote-to-order').forEach(btn => {
+            btn.textContent = btn.className.includes('add-to-order') ? 'Voeg toe aan order' : 'Voeg toe aan order';
+            btn.classList.remove('remove-from-order');
+        });
     }
 
+    orderItems.length = 0;
+    orderItemsContainer.innerHTML = '';
+    currentTotal = 0;
+
     const priceNumber = parseFloat(price);
-    currentTotal += priceNumber;
+    currentTotal = priceNumber;
     orderItems.push({
         name,
         price: priceNumber,
@@ -39,6 +46,19 @@ function addOrderItem(name, price, meta = {}) {
 
     orderItemsContainer.appendChild(orderItem);
     updateTotalPrice();
+}
+
+function clearOrder() {
+    orderItems.length = 0;
+    currentTotal = 0;
+    if (orderItemsContainer) {
+        orderItemsContainer.innerHTML = emptyOrderMessage;
+    }
+    updateTotalPrice();
+    document.querySelectorAll('.add-to-order, #add-quote-to-order').forEach(btn => {
+        btn.textContent = btn.className.includes('add-to-order') ? 'Voeg toe aan order' : 'Voeg toe aan order';
+        btn.classList.remove('remove-from-order');
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -68,6 +88,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
+            if (button.classList.contains('remove-from-order')) {
+                clearOrder();
+                return;
+            }
+
             const name = packageItem.dataset.packageName || packageItem.querySelector('h4').textContent;
             const price = packageItem.dataset.packagePrice || packageItem.querySelector('.price').textContent.replace('€', '');
             const packageId = packageItem.dataset.packageId ? Number(packageItem.dataset.packageId) : null;
@@ -78,8 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 packageId,
                 description,
             });
-            button.textContent = 'Toegevoegd';
-            button.disabled = true;
+            button.textContent = 'Verwijder';
+            button.classList.add('remove-from-order');
         });
     }
 
@@ -111,16 +136,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
                 quoteResultContainer.innerHTML = `
                     <p>Geschatte kosten: <strong>€${totalQuote.toFixed(2)}</strong></p>
-                    <button id="add-quote-to-order" class="btn">Voeg toe aan order</button>
+                    <button id="add-quote-to-order" class="btn primary">Voeg toe aan order</button>
                 `;
                 
                 document.getElementById('add-quote-to-order').addEventListener('click', function() {
+                    if (this.classList.contains('remove-from-order')) {
+                        clearOrder();
+                        this.textContent = 'Voeg toe aan order';
+                        this.classList.remove('remove-from-order');
+                        return;
+                    }
+
                     addOrderItem('Offerte op maat', totalQuote.toFixed(2), {
                         type: 'offerte',
                         offerte: lastQuote,
                     });
-                    this.textContent = 'Toegevoegd!';
-                    this.disabled = true;
+                    this.textContent = 'Verwijder';
+                    this.classList.add('remove-from-order');
                 });
 
             } else {
@@ -218,15 +250,16 @@ function createOrder() {
             });
 
             const result = await response.json();
-            console.log("Succes:", result);
+            alert(result.message || "Order succesvol geplaatst!");
 
         } catch (error) {
             console.error("Error:", error);
+            alert("Er is een fout opgetreden bij het plaatsen van de order.");
         }
     });
 }
 
-function initCalendar() {
+async function initCalendar() {
     const calendarBody = document.getElementById('calendar-body');
     const selectedDateDisplay = document.getElementById('selected-date-display');
 
@@ -234,6 +267,21 @@ function initCalendar() {
 
     const daysInMonth = 31;
     const startDay = 6; // zondag
+
+    let dateStatusMap = {};
+    try {
+        const response = await fetch('http://localhost:3000/api/orders');
+        if (response.ok) {
+            const data = await response.json();
+            data.orders.forEach(order => {
+                if (order.datum) {
+                    dateStatusMap[order.datum] = order.status;
+                }
+            });
+        }
+    } catch (error) {
+        console.error('Failed to fetch booked dates:', error);
+    }
 
     let date = 1;
     for (let i = 0; i < 5; i++) {
@@ -249,25 +297,45 @@ function initCalendar() {
                 row.appendChild(cell);
             } else {
                 cell.textContent = date;
-                cell.style.cursor = 'pointer';
                 const dateStr = `2026-03-${String(date).padStart(2, '0')}`;
                 cell.dataset.date = dateStr;
                 
-                cell.addEventListener('click', function() {
-                    document.querySelectorAll('#calendar-body td[data-date]').forEach(c => {
-                        c.style.backgroundColor = '';
-                        c.style.color = '';
-                        c.style.fontWeight = '';
+                const orderStatus = dateStatusMap[dateStr];
+                const isSunday = j === 6;
+                
+                if (isSunday) {
+                    cell.style.opacity = '0.5';
+                    cell.style.cursor = 'not-allowed';
+                    cell.style.color = '#ccc';
+                } else if (orderStatus === 'Geplaatst') {
+                    cell.style.backgroundColor = '#f44336'; 
+                    cell.style.color = 'white';
+                    cell.style.cursor = 'not-allowed';
+                    cell.style.opacity = '0.7';
+                } else if (orderStatus === 'In behandeling') {
+                    cell.style.backgroundColor = '#ff9800';
+                    cell.style.color = 'white';
+                    cell.style.cursor = 'not-allowed';
+                    cell.style.opacity = '0.7';
+                } else {
+                    cell.style.cursor = 'pointer';
+                    
+                    cell.addEventListener('click', function() {
+                        document.querySelectorAll('#calendar-body td[data-date]').forEach(c => {
+                            c.style.backgroundColor = '';
+                            c.style.color = '';
+                            c.style.fontWeight = '';
+                        });
+                        
+                        selectedDate = this.dataset.date;
+                        this.style.backgroundColor = '#4CAF50';
+                        this.style.color = 'white';
+                        this.style.fontWeight = 'bold';
+                        
+                        const dateObj = new Date(selectedDate);
+                        selectedDateDisplay.textContent = `Geselecteerde datum: ${dateObj.toLocaleDateString('nl-NL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}`;
                     });
-                    
-                    selectedDate = this.dataset.date;
-                    this.style.backgroundColor = '#4CAF50';
-                    this.style.color = 'white';
-                    this.style.fontWeight = 'bold';
-                    
-                    const dateObj = new Date(selectedDate);
-                    selectedDateDisplay.textContent = `Geselecteerde datum: ${dateObj.toLocaleDateString('nl-NL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}`;
-                });
+                }
                 
                 date++;
                 row.appendChild(cell);
