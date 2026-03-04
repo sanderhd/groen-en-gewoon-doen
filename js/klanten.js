@@ -5,6 +5,26 @@ let currentTotal = 0;
 const orderItems = [];
 let lastQuote = null;
 let selectedDate = null;
+let rates = null;
+
+// Load pricing rates from rates.json
+async function loadRates() {
+    try {
+        const response = await fetch('../data/rates.json');
+        rates = await response.json();
+    } catch (error) {
+        console.error('Error loading rates:', error);
+        // Fallback to default rates if fetch fails
+        rates = {
+            gras: { price: 5, unit: 'm²' },
+            tegels: { price: 20, unit: 'm²' },
+            heg: { price: 15, unit: 'm' }
+        };
+    }
+}
+
+// Load rates when page loads
+loadRates();
 
 function updateTotalPrice() {
     if (!totalPriceElement) {
@@ -120,10 +140,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const m2Tegels = parseFloat(document.getElementById('m2-tegels').value) || 0;
             const metersHeg = parseFloat(document.getElementById('meters-heg').value) || 0;
 
-            // Example pricing
-            const priceGras = 5;    // €5 per m²
-            const priceTegels = 20; // €20 per m²
-            const priceHeg = 15;    // €15 per meter
+            // Get pricing from rates.json
+            const priceGras = rates?.gras?.price || 5;
+            const priceTegels = rates?.tegels?.price || 20;
+            const priceHeg = rates?.heg?.price || 15;
 
             const totalQuote = (m2Gras * priceGras) + (m2Tegels * priceTegels) + (metersHeg * priceHeg);
 

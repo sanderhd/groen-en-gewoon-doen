@@ -1,0 +1,14 @@
+{
+  "gras": {
+    "price": 6,
+    "unit": "m²"
+  },
+  "tegels": {
+    "price": 20,
+    "unit": "m²"
+  },
+  "heg": {
+    "price": 15,
+    "unit": "m"
+  }
+}
