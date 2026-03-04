@@ -223,6 +223,10 @@ function createOrder() {
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
+        if (!await validateForm()) {
+            return;
+        }
+
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
@@ -364,4 +368,36 @@ async function initCalendar() {
         
         calendarBody.appendChild(row);
     }
+}
+
+async function validateForm() {
+    const nameEl = document.getElementById('client-name');
+    const addressEl = document.getElementById('client-address');
+    const emailEl = document.getElementById('client-email');
+
+    const name = nameEl ? nameEl.value.trim() : '';
+    const address = addressEl ? addressEl.value.trim() : '';
+    const email = emailEl ? emailEl.value.trim() : '';
+
+    if (!name || !address || !email) {
+        alert('Vul alstublieft alle verplichte velden in (naam, adres, email).');
+        return false;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert('Vul alstublieft een geldig emailadres in.');
+        return false;
+    }
+
+    return true;
+}
+
+const form = document.getElementById('customer-form');
+if (form) {
+    form.addEventListener('submit', async function(event) {
+        if (!await validateForm()) {
+            event.preventDefault();
+        }
+    });
 }
