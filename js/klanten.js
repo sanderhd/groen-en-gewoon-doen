@@ -141,9 +141,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const metersHeg = parseFloat(document.getElementById('meters-heg').value) || 0;
 
             // Get pricing from rates.json
-            const priceGras = rates?.gras?.price || 5;
-            const priceTegels = rates?.tegels?.price || 20;
-            const priceHeg = rates?.heg?.price || 15;
+            const priceGras = rates.gras.price;
+            const priceTegels = rates.tegels.price;
+            const priceHeg = rates.heg.price;
 
             const totalQuote = (m2Gras * priceGras) + (m2Tegels * priceTegels) + (metersHeg * priceHeg);
 
