@@ -35,14 +35,28 @@
 
         <div id="Tab1" class="tabcontent">
             <h2>Orders Overzicht</h2>
-            <table>
+            <div style="margin-bottom:12px; display:flex; gap:8px; align-items:center;">
+                <button id="select-all" class="btn small">Selecteer alles</button>
+                <button id="deselect-all" class="btn small">Deselecteer</button>
+                <select id="bulk-status" style="padding:6px;">
+                    <option value="">-- Stel status in (bulk) --</option>
+                    <option value="Akkoord">Akkoord</option>
+                    <option value="Niet akkoord">Niet akkoord</option>
+                    <option value="Geplaatst">Geplaatst</option>
+                    <option value="In behandeling">In behandeling</option>
+                </select>
+                <input id="bulk-date" type="date" />
+                <button id="apply-bulk" class="btn primary small">Pas toe op geselecteerde</button>
+            </div>
+            <table id="admin-orders-table">
                 <thead>
                     <tr>
+                        <th>Select</th>
                         <th>Order ID</th>
                         <th>Klant</th>
-                        <th>Details</th>
-                        <th>Offerte</th>
+                        <th>Datum</th>
                         <th>Status</th>
+                        <th>Totaal</th>
                         <th>Acties</th>
                     </tr>
                 </thead>
